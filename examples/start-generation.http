@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:3000
+@sessionId = 123e4567-e89b-12d3-a456-426614174000
+@jobId = replace-with-job-id-from-response
+
+### Start a demo generation
+POST {{baseUrl}}/api/generations
+Content-Type: application/json
+
+{
+  "sessionId": "{{sessionId}}",
+  "images": [
+    {
+      "key": "temp/123e4567-e89b-12d3-a456-426614174000/input/0123456789abcdef0123456789abcdef.jpg"
+    }
+  ],
+  "property": {
+    "type": "Apartment",
+    "transaction": "Vente",
+    "district": "Mermoz"
+  },
+  "video": {
+    "style": "elegant",
+    "ratio": "9:16",
+    "duration": 10,
+    "prompt": "Create a smooth, elegant 10-second property tour from the uploaded photo."
+  }
+}
+
+### Poll the job status
+GET {{baseUrl}}/api/generations/{{jobId}}

@@ -1,0 +1,24 @@
+[project]
+name = "terrova-agent-runner"
+version = "0.1.0"
+description = "Service privé d'orchestration des agents Terrova"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "openai-agents>=0.8,<0.9",
+  "uvicorn[standard]>=0.30,<1",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

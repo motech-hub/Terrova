@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:3000
+@sessionId = 123e4567-e89b-12d3-a456-426614174000
+
+POST {{baseUrl}}/api/generation-plan
+Content-Type: application/json
+
+{
+  "sessionId": "{{sessionId}}",
+  "images": [
+    {
+      "key": "temp/123e4567-e89b-12d3-a456-426614174000/input/0123456789abcdef0123456789abcdef.jpg"
+    }
+  ],
+  "property": {
+    "type": "Apartment",
+    "transaction": "Vente",
+    "district": "Mermoz",
+    "comments": "Bright living room, quiet street"
+  },
+  "video": {
+    "style": "elegant",
+    "ratio": "9:16",
+    "duration": 10
+  }
+}
